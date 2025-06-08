@@ -23,18 +23,18 @@ public class Alat {
     // Getter untuk mengambil jumlah alat
     public int getJumlah() {
         return jumlah;
-    // Getter untuk mengambil status alat
-    public String getStatus() {
-        return status;
-    }
-    // Setter untuk mengubah status alat
-    public void setStatus(String status) {
-        this.status = status;
+        // Getter untuk mengambil status alat
+        public String getStatus() {
+            return status;
+        }
+        // Setter untuk mengubah status alat
+        public void setStatus(String status) {
+            this.status = status;
 
-    // Override metode toString() untuk menampilkan informasi alat dengan format yang jelas
-    @Override
-    public String toString() {
-        return "Nama Alat: " + nama + ", Jumlah: " + jumlah + ", Status: " + status;
-        // Mengembalikan string yang menampilkan nama, jumlah, dan status alat
-    }
-}
+            // Override metode toString() untuk menampilkan informasi alat dengan format yang jelas
+            @Override
+            public String toString() {
+                return "Nama Alat: " + nama + ", Jumlah: " + jumlah + ", Status: " + status;
+                // Mengembalikan string yang menampilkan nama, jumlah, dan status alat
+            }
+        }
