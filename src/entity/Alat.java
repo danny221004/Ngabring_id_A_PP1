@@ -1,13 +1,12 @@
 package entity;
 
 public class Alat {
+<<<<<<< HEAD
     // Atribut nama untuk menyimpan nama alat 123456789
+=======
+>>>>>>> fd609fd (membuat node dan queue)
     private String nama;
-
-    // Atribut jumlah untuk menyimpan jumlah alat
     private int jumlah;
-
-    // Atribut status untuk menyimpan status dari alat (misalnya: "Belum diproses", "Telah diproses")
     private String status;
 
     // Konstruktor untuk membuat objek Alat dengan menginisialisasi nama, jumlah, dan status
@@ -19,23 +18,18 @@ public class Alat {
 
     // Getter untuk mengambil nama alat
     public String getNama() {
-        return nama;  // Mengembalikan nilai nama alat
+        return nama;
     }
-
     // Getter untuk mengambil jumlah alat
     public int getJumlah() {
-        return jumlah;  // Mengembalikan nilai jumlah alat
-    }
-
+        return jumlah;
     // Getter untuk mengambil status alat
     public String getStatus() {
-        return status;  // Mengembalikan nilai status alat
+        return status;
     }
-
     // Setter untuk mengubah status alat
     public void setStatus(String status) {
-        this.status = status;  // Mengubah nilai status alat
-    }
+        this.status = status;
 
     // Override metode toString() untuk menampilkan informasi alat dengan format yang jelas
     @Override
