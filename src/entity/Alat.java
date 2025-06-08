@@ -1,7 +1,7 @@
 package entity;
 
 public class Alat {
-    // Atribut nama untuk menyimpan nama alat
+    // Atribut nama untuk menyimpan nama alat 123
     private String nama;
 
     // Atribut jumlah untuk menyimpan jumlah alat
