@@ -6,7 +6,6 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) {
-        // Membuat objek InventarisAlatKantor untuk mengelola antrean alat
         InventarisAlatKantor inventaris = new InventarisAlatKantor();
         // Membuat objek InventarisAlatService yang bertugas untuk berinteraksi dengan InventarisAlatKantor
         InventarisAlatService service = new InventarisAlatService(inventaris);
