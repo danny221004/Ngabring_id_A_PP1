@@ -5,15 +5,13 @@ import entity.Alat;
 
 public class InventarisAlatKantorService {
 
-    private StrukturQueue antreanAlat = new StrukturQueue();  // Queue untuk menyimpan alat
+    private StrukturQueue antreanAlat = new StrukturQueue();
 
-    // Menambahkan alat ke antrean
     public void enqueue(Alat alat) {
         antreanAlat.enqueue(alat);
         System.out.println("Alat berhasil ditambahkan: " + alat);
     }
 
-    // Mengambil alat pertama dari antrean dan memprosesnya
     public void dequeue() {
         if (!antreanAlat.isEmpty()) {
             Alat alat = antreanAlat.dequeue();  // Mengambil alat pertama dalam antrean
