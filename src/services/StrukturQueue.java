@@ -1,4 +1,3 @@
-// StrukturQueue.java (Queue Implementation)
 package services;
 
 import entity.Alat;
