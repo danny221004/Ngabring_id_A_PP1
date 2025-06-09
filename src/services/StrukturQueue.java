@@ -7,7 +7,7 @@ public class StrukturQueue {
     private Node FRONT;  // Menyimpan node pertama
     private Node REAR;   // Menyimpan node terakhir
 
-    // Node untuk menyimpan data Alat dan pointer ke node berikutnya
+    // Node untuk menyimpan data Alat dan pointer ke node berikut nya
     private class Node {
         private Alat data;
         private Node next;
