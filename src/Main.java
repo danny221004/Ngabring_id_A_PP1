@@ -1,45 +1,16 @@
+// Main.java
 import entity.Alat;
-import services.InventarisAlatKantor;
-import services.InventarisAlatService;
+import services.InventarisAlatKantorService;
 import java.util.Scanner;
 
 public class Main {
 
     public static void main(String[] args) {
-        InventarisAlatKantor inventaris = new InventarisAlatKantor();
-        // Membuat objek InventarisAlatService yang bertugas untuk berinteraksi dengan InventarisAlatKantor
-        InventarisAlatService service = new InventarisAlatService(inventaris);
-
-        // Membuat Map yang menghubungkan pilihan dengan aksi yang sesuai
-        java.util.Map<Integer, Runnable> menuActions = new java.util.HashMap<>();
-
-        // Menambahkan aksi ke dalam Map
-        menuActions.put(1, () -> {
-            String nama = inputString("Masukkan nama alat: ");
-            int jumlah = inputInt("Masukkan jumlah alat: ");
-            Alat alat = new Alat(nama, jumlah, "Belum diproses");
-            service.enqueue(alat);
-            System.out.println("Alat baru berhasil ditambahkan ke antrean.");
-        });
-
-        menuActions.put(2, () -> {
-            System.out.println("Anda memilih untuk memproses alat yang ada.");
-            service.dequeue();
-        });
-
-        menuActions.put(3, () -> {
-            System.out.println("Menampilkan alat yang belum diproses.");
-            service.displayAlat();
-        });
-
-        menuActions.put(4, () -> {
-            System.out.println("Terima kasih! Program selesai.");
-            System.exit(0);  // Keluar dari aplikasi
-        });
-
+        // Membuat objek InventarisAlatKantorService untuk mengelola antrean
+        InventarisAlatKantorService service = new InventarisAlatKantorService();
+        Scanner scanner = new Scanner(System.in);
         boolean isRunning = true;
 
-        // Program berjalan selama isRunning bernilai true
         while (isRunning) {
             // Menampilkan menu kepada pengguna
             System.out.println("\n--- Menu Pengelolaan Inventaris Alat Kantor ---");
@@ -49,39 +20,52 @@ public class Main {
             System.out.println("4. Keluar");
 
             // Membaca pilihan menu dari pengguna
-            int pilihan = inputInt("Pilih opsi (1-4): ");
-            clearBuffer();  // Membersihkan buffer setelah input integer
+            int pilihan = inputInt(scanner, "Pilih opsi (1-4): ");
 
-            // Menjalankan aksi berdasarkan pilihan yang diberikan
-            if (menuActions.containsKey(pilihan)) {
-                menuActions.get(pilihan).run();  // Menjalankan aksi yang terkait dengan pilihan
-            } else {
-                System.out.println("Pilihan tidak valid! Silakan coba lagi.");
+            switch (pilihan) {
+                case 1:
+                    // Menambahkan alat baru
+                    String nama = inputString(scanner, "Masukkan nama alat: ");
+                    int jumlah = inputInt(scanner, "Masukkan jumlah alat: ");
+                    Alat alat = new Alat(nama, jumlah, "Belum diproses");
+                    service.enqueue(alat);
+                    System.out.println("Alat baru berhasil ditambahkan ke antrean.");
+                    break;
+                case 2:
+                    // Memproses alat yang ada
+                    service.dequeue();
+                    break;
+                case 3:
+                    // Menampilkan alat yang belum diproses
+                    service.displayAlat();
+                    break;
+                case 4:
+                    // Keluar dari aplikasi
+                    System.out.println("Terima kasih! Program selesai.");
+                    isRunning = false;
+                    break;
+                default:
+                    System.out.println("Pilihan tidak valid! Silakan coba lagi.");
             }
         }
+
+        // Menutup scanner setelah program selesai
+        scanner.close();
     }
 
     // Metode untuk menerima input string dari pengguna
-    public static String inputString(String prompt) {
-        Scanner scanner = new Scanner(System.in);
+    public static String inputString(Scanner scanner, String prompt) {
         System.out.print(prompt);
         return scanner.nextLine();
     }
 
     // Metode untuk menerima input integer dari pengguna
-    public static int inputInt(String prompt) {
-        Scanner scanner = new Scanner(System.in);
+    public static int inputInt(Scanner scanner, String prompt) {
         System.out.print(prompt);
         while (!scanner.hasNextInt()) {
             System.out.print("Input tidak valid. Masukkan angka: ");
-            scanner.next(); // Membuang input yang tidak valid
+            scanner.next();  // Membuang input yang tidak valid
         }
         return scanner.nextInt();
-    }
-
-    // Metode untuk membersihkan buffer setelah input
-    public static void clearBuffer() {
-        Scanner scanner = new Scanner(System.in);
-        scanner.nextLine();  // Membersihkan buffer setelah input integer
     }
 }
