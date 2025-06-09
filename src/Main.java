@@ -56,7 +56,7 @@ public class Main {
     // Metode untuk menerima input string dari pengguna
     public static String inputString(Scanner scanner, String prompt) {
         System.out.print(prompt);
-        return scanner.nextLine();
+        return scanner.nextLine(); // Menerima input string
     }
 
     // Metode untuk menerima input integer dari pengguna
@@ -66,6 +66,8 @@ public class Main {
             System.out.print("Input tidak valid. Masukkan angka: ");
             scanner.next();  // Membuang input yang tidak valid
         }
-        return scanner.nextInt();
+        int value = scanner.nextInt();
+        scanner.nextLine(); // Clear the newline character left by nextInt
+        return value;
     }
 }
