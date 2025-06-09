@@ -13,7 +13,7 @@ public class Main {
         boolean isRunning = true;
 
         while (isRunning) {
-            // Menampilkan menu manual
+            // Menampilkan menu manuual
             System.out.println("\n--- Menu Pengelolaan Inventaris Alat Kantor ---");
             System.out.println("1. Tambah Alat Baru");
             System.out.println("2. Proses Alat yang Ada");
